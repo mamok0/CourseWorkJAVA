@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+}
+
+.control-btn{
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  padding: 1px 5px;
+}
+
+.cards-list{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+@media(max-height: 600px){
+  .cards-list{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.add-form{
+  width: 300px;
+  margin: 10px 0;
+}
+
+.add-form input{
+  margin: 3px 0;
+}
