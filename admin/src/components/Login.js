@@ -20,6 +20,7 @@ class Login extends React.Component {
     axios.post("http://localhost:8080/users", {username: this.state.username, password: this.state.password}).then((res)=> {
       if(res.status == 200){
         this.setState({isAuthenticated: true})
+        localStorage.setItem("auth", true)
         this.props.handleAuth(this.state.username)
       }
       else{
@@ -43,7 +44,7 @@ class Login extends React.Component {
 
   render(){
     if(this.state.isAuthenticated){
-      return <Redirect to="/orders"/>
+      return <Redirect to="/products"/>
     }
     
     return (
