@@ -12,6 +12,7 @@
 .cards-list{
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
 }
 
@@ -28,5 +29,6 @@
 }
 
 .add-form input{
-  margin: 3px 0;
+  width: 18rem; 
+  margin: 5px 5px 0 0;
 }

@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("safes")
 public class Safe {
-  @Id
   private String id;
   private String title;
 
@@ -24,6 +23,7 @@ public class Safe {
 
   public Safe(){ }
 
+  public String getId() {return id;}
 
   public String getTitle() {return title;}
 
