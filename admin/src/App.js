@@ -28,7 +28,7 @@ class App extends React.Component {
     return (
       <Router>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">Admin panel</a>
+          <a class="navbar-brand" href="#">Панель администрирования</a>
         </nav>
         <Switch>
           <Route exact path="/"
