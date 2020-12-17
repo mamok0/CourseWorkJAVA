@@ -197,7 +197,7 @@ class Products extends React.Component {
        <div class="edit-form">
             <input type="text" class="form-control" placeholder="Наименование товара" onChange={this.editTitleChanged} defaultValue={safe.title}/>
             <input type="text" class="form-control" placeholder="Цена" onChange={this.editPriceChanged} defaultValue={safe.price}/>
-            <textarea onChange={this.editDescriptionChanged} defaultValue={safe.description} rows="6" placeholder="Описание товара"  defaultValue={{margin: "5px 0", width: "18rem"}} class="form-control"></textarea>
+            <textarea onChange={this.editDescriptionChanged} defaultValue={safe.description} rows="6" placeholder="Описание товара"  style={{margin: "5px 0", width: "18rem"}} class="form-control"></textarea>
             <input type="text" defaultValue={safe.image} onChange={this.editImageChanged} class="form-control" />
             <div className="text-center" style={{margin: "5px 0"}}>
               <button onClick={() => this.productEditSubmit(safe)} className="btn btn-success">Сохранить изменения</button>
