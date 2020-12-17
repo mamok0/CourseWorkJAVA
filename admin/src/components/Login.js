@@ -18,13 +18,15 @@ class Login extends React.Component {
 
   login(){
     axios.post("http://localhost:8080/users", {username: this.state.username, password: this.state.password}).then((res)=> {
-      if(res.status == 200){
-        this.setState({isAuthenticated: true})
-        localStorage.setItem("auth", true)
-        this.props.handleAuth(this.state.username)
+      this.setState({isAuthenticated: true})
+      sessionStorage.setItem("auth", "true")
+    }).catch(err => {
+      if(err.response.status == 401){
+        debugger
+        this.setState({authError: true})
       }
       else{
-        this.setState({authError: true})
+        console.log(err.response.status)
       }
     })
   }
@@ -43,7 +45,8 @@ class Login extends React.Component {
 
 
   render(){
-    if(this.state.isAuthenticated){
+    if(sessionStorage.getItem("auth") == "true"){
+      debugger
       return <Redirect to="/products"/>
     }
     
@@ -60,6 +63,7 @@ class Login extends React.Component {
                 <input type="password" class="form-control" id="exampleInputPassword" placeholder="Введите пароль" onChange={this.handlePasswordChange}/>
               </div>
               <button type="submit" class="btn btn-primary" onClick={() => this.login()}>Submit</button>
+              {this.state.authError && <p class="text-danger">Логин или пароль неправильный</p>}
           </div>
       </div>
       </div>

@@ -34,7 +34,7 @@ class App extends React.Component {
           <Route exact path="/"
           render={() => {
             return (
-              localStorage.getItem("auth") ?
+              sessionStorage.getItem("auth") == "true" ?
               <Redirect to="/products" /> :
               <Redirect to="/login" /> 
             )
@@ -54,7 +54,7 @@ class App extends React.Component {
 }
 
 window.onbeforeunload = function() {
-  localStorage.clear();
+  sessionStorage.removeItem('auth')
 }
 
 export default App;

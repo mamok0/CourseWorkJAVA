@@ -43,18 +43,34 @@ class Products extends React.Component {
   }
 
   addTitleChanged = (e) => {
-    this.setState({editTitle: e.target.value})
+    this.setState({addTitle: e.target.value})
   }
 
   addDescriptionChanged = (e) => {
-    this.setState({editDescription: e.target.value})
+    this.setState({addDescription: e.target.value})
   }
 
   addPriceChanged = (e) => {
-    this.setState({editPrice: e.target.value})
+    this.setState({addPrice: e.target.value})
   }
 
   addImageChanged = (e) => {
+    this.setState({addImage: e.target.value})
+  }
+
+  editTitleChanged = (e) => {
+    this.setState({editTitle: e.target.value})
+  }
+
+  editDescriptionChanged = (e) => {
+    this.setState({editDescription: e.target.value})
+  }
+
+  editPriceChanged = (e) => {
+    this.setState({editPrice: e.target.value})
+  }
+
+  editImageChanged = (e) => {
     this.setState({editImage: e.target.value})
   }
 
@@ -140,7 +156,7 @@ class Products extends React.Component {
       }
       return ( this.state.editProductId !== safe.id ? (
         <div>
-          <div class="card" style={{width: "18rem", margin: "5px 5px 0 0"}}>
+          <div class="card" style={{width: "15rem", margin: "5px 5px 0 0"}}>
             <img class="card-img-top" src={safe.image} alt={safe.title} />
             <div class="card-body">
               <h5 class="card-title">{safe.title}</h5>
@@ -159,31 +175,31 @@ class Products extends React.Component {
             </div>
           </div>
           <div class="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Редактирование товара</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <img class="card-img-top" src={this.state.showProduct.image} alt={this.state.showProduct.title} />
-                <h5 class="card-title">{this.state.showProduct.title}</h5>
-                <h3>{this.state.showProduct.price} р.</h3>
-                <p class="cart-text">{this.state.showProduct.description}</p>
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Редактирование товара</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <img class="card-img-top" src={this.state.showProduct.image} alt={this.state.showProduct.title} />
+                  <h5 class="card-title">{this.state.showProduct.title}</h5>
+                  <h3>{this.state.showProduct.price} р.</h3>
+                  <p class="cart-text">{this.state.showProduct.description}</p>
+                </div>
               </div>
             </div>
           </div>
-          </div>
       </div>
       ) : (
-       <div class="add-form">
-            <input type="text" class="form-control" placeholder="Наименование товара" onChange={this.addTitleChanged} defaultValue={safe.title}/>
-            <input type="text" class="form-control" placeholder="Цена" onChange={this.addPriceChanged} defaultValue={safe.price}/>
-            <textarea onChange={this.addDescriptionChanged} defaultValue={safe.description} rows="3" placeholder="Описание товара"  defaultValue={{margin: "5px 0", width: "18rem"}} class="form-control"></textarea>
-            <input type="text" defaultValue={safe.image} onChange={this.addImageChanged} class="form-control" />
-            <div style={{margin: "5px 0"}}>
+       <div class="edit-form">
+            <input type="text" class="form-control" placeholder="Наименование товара" onChange={this.editTitleChanged} defaultValue={safe.title}/>
+            <input type="text" class="form-control" placeholder="Цена" onChange={this.editPriceChanged} defaultValue={safe.price}/>
+            <textarea onChange={this.editDescriptionChanged} defaultValue={safe.description} rows="6" placeholder="Описание товара"  defaultValue={{margin: "5px 0", width: "18rem"}} class="form-control"></textarea>
+            <input type="text" defaultValue={safe.image} onChange={this.editImageChanged} class="form-control" />
+            <div className="text-center" style={{margin: "5px 0"}}>
               <button onClick={() => this.productEditSubmit(safe)} className="btn btn-success">Сохранить изменения</button>
               <button style={{marginLeft: "5px"}} onClick={() => this.cancelEdit()} className="btn btn-danger">Отмена</button>
             </div>

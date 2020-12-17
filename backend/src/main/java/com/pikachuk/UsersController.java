@@ -23,12 +23,12 @@ public class UsersController {
     }
 
     @PostMapping()
-    public ResponseEntity<User> findUser(@RequestBody User user) {
+    public ResponseEntity<HttpStatus> findUser(@RequestBody User user) {
         List<User> users = repository.findAll();
 
         if (users.contains(user)) {
-            return ResponseEntity.ok().build();
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-        return ResponseEntity.notFound().build();
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 }
