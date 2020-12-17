@@ -157,7 +157,7 @@ class Products extends React.Component {
       return ( this.state.editProductId !== safe.id ? (
         <div>
           <div class="card" style={{width: "15rem", margin: "5px 5px 0 0"}}>
-            <img class="card-img-top" src={safe.image} alt={safe.title} />
+            <img class="card-img-top product-img" src={safe.image} alt={safe.title} />
             <div class="card-body">
               <h5 class="card-title">{safe.title}</h5>
               <p class="card-text">{safe.price} р.</p>
