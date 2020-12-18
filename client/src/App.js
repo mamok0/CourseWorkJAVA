@@ -16,9 +16,6 @@ class App extends React.Component {
             </ul>
             <ul class="navbar-nav">
               <li class="nav-item shop-cart">
-                {/* <span class="material-icons md-36">
-                  shopping_cart
-                </span> */}
                 <span><span class="material-icons header-icon">business</span>ул. Школьная, д.15</span><br/>
                 <span><span class="material-icons header-icon">call</span>+3753460922</span>
               </li>

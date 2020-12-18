@@ -24,14 +24,14 @@ class Products extends React.Component {
   loadProducts(){
     axios.get("http://localhost:8080/safes").then((res) => {
       this.setState({data: res.data})
-      debugger
+      
     })
   }
 
   showFullProductInfo(safeId){
     axios.get("http://localhost:8080/safes/" + safeId).then(res => {
       this.setState({showProduct: res.data})
-      debugger
+      
     })
   }
 

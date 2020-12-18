@@ -17,12 +17,15 @@ class Login extends React.Component {
   }
 
   login(){
+    const user = this.state.username
     axios.post("http://localhost:8080/users", {username: this.state.username, password: this.state.password}).then((res)=> {
       this.setState({isAuthenticated: true})
+      
+      this.props.handleAuth(user)
       sessionStorage.setItem("auth", "true")
     }).catch(err => {
+      
       if(err.response.status == 401){
-        debugger
         this.setState({authError: true})
       }
       else{
@@ -46,7 +49,6 @@ class Login extends React.Component {
 
   render(){
     if(sessionStorage.getItem("auth") == "true"){
-      debugger
       return <Redirect to="/products"/>
     }
     

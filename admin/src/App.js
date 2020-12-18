@@ -19,9 +19,9 @@ class App extends React.Component {
     }
   }
 
-  handleUserAuthentication(username){
-    debugger
-    this.state.username = username
+  handleUserAuthentication = (username) => {
+    
+    this.setState({username: username})
   }
 
   render(){
@@ -29,6 +29,15 @@ class App extends React.Component {
       <Router>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <a class="navbar-brand" href="#">Панель администрирования</a>
+          <ul class="navbar-nav mr-auto">
+            </ul>
+            {this.state.username !== "" && (
+              <ul class="navbar-nav">
+              <li class="nav-item shop-cart">
+                <span style={{color: "#fff"}}>{this.state.username}</span>
+              </li>
+            </ul>
+            )}
         </nav>
         <Switch>
           <Route exact path="/"
@@ -44,7 +53,7 @@ class App extends React.Component {
             <Products/>
           </Route>
           <Route path="/login">
-            <Login handleAuth={(username) => this.handleUserAuthentication(username)}/>
+            <Login handleAuth={this.handleUserAuthentication}/>
           </Route>
         </Switch>
       </Router>

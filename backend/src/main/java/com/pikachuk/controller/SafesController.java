@@ -76,8 +76,4 @@ public class SafesController {
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-
-
-
-
 }

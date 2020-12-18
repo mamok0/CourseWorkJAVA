@@ -34,7 +34,6 @@ class Products extends React.Component {
   loadProducts(){
     axios.get("http://localhost:8080/safes").then((res) => {
       this.setState({data: res.data})
-      debugger
     })
   }
 
@@ -75,7 +74,6 @@ class Products extends React.Component {
   }
 
   productAdded(){
-    debugger
     axios.post("http://localhost:8080/safes",
     {
       title: this.state.addTitle,
@@ -89,7 +87,6 @@ class Products extends React.Component {
   }
 
   productDeleted(safeId) {
-    debugger
     axios.delete("http://localhost:8080/safes/" + safeId).then((res) => {
       this.loadProducts()
     })
@@ -123,7 +120,6 @@ class Products extends React.Component {
     safe.price = this.state.editPrice;
     safe.description = this.state.editDescription;
     safe.image = this.state.editImage;
-    debugger
     axios.put("http://localhost:8080/safes/" + safeId, safe).then((res) => {
       this.loadProducts()
       this.cancelEdit()
@@ -133,7 +129,6 @@ class Products extends React.Component {
   showFullProductInfo(safeId){
     axios.get("http://localhost:8080/safes/" + safeId).then(res => {
       this.setState({showProduct: res.data})
-      debugger
     })
   }
 
